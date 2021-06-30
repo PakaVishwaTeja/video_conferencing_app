@@ -31,6 +31,7 @@ app.get("/",function(req,res)
 });
 app.get("/:room",function(req,res)
 {
+  // res.send(roomId:req.params.room);
   res.render("room",{roomId:req.params.room});
 });
 a.on('connection', socket => {
@@ -39,9 +40,12 @@ a.on('connection', socket => {
     socket.join(RoomId)
     socket.broadcast.to(RoomId).emit('user-connected' , userId);
     })
-    socket.on('hello' , ()=>{
-      console.log('hello');
+    socket.off('join-room', (RoomId , userId) => {
+    //  console.log( userId);
+    socket.join(RoomId)
+    socket.broadcast.to(RoomId).emit('user-connected' , userId);
     })
+    
   
   }
     

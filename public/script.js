@@ -94,6 +94,11 @@ navigator.mediaDevices.getUserMedia({
             console.log( "connected user's id - " + userId);
             connectToUser(userId , videoAudio);
           })
+          socket.off('user-connected' , (userId)=>{
+            console.log( "connected user's id - " + userId);
+            connectToUser(userId , videoAudio);
+          })
+         
       })
 
           myPeer.on('open' , userId=>{
