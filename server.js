@@ -20,7 +20,7 @@ const a =  require("socket.io")(server);
 const { ExpressPeerServer } = require('peer');
 const peerServer = ExpressPeerServer(server, {
   debug: true,
-  path:'/'
+  // path:'/'
 });
 app.use('/peerjs' , peerServer)
 app.set("view engine","ejs");
